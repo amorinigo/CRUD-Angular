@@ -1,1 +1,41 @@
-<p>product works!</p>
+<div class="product m-5" *ngIf="product">
+  <figure class="product__figure">
+    <div class="product__img-ctn">
+      <img [src]="product.image" [alt]="product.name" class="product__img">
+
+      <img *ngIf="product.inOffer" src="../../assets/img/offer.png" alt="offer" class="product__img-offer">
+    </div>
+</figure>
+
+
+<div class="product__content text-center">
+
+  <h4 class="product__name"> {{ product.name }} </h4>
+
+  <p class="product__description"> {{ product.description }} </p>
+
+  <div class="product__dues">
+
+    <h5>6 Cuotas s/interés</h5>
+
+    <h6 *ngIf="!product.inOffer"> ${{ (product.price / 6) | number:'1.2-2' }} </h6>
+
+    <h6 *ngIf="product.inOffer">
+      ${{ (product.price - ((10 * product.price) / 100)) / 6 | number:'1.2-2' }}
+    </h6>
+
+
+  </div>
+
+  <p class="product__price-ctn">
+    Final:
+    <span class="product__tracing" *ngIf="product.inOffer"> ${{ product.price }} </span>
+
+    <span class="product__price" *ngIf="product.inOffer">
+      ${{ product.price - ((10 * product.price) / 100) }}
+    </span>
+
+    <span class="product__price" *ngIf="!product.inOffer"> ${{ product.price }} </span>
+  </p>
+</div>
+</div>
