@@ -1,0 +1,16 @@
+.button {
+  width: 100px;
+  height: 40px;
+  background-image: url('../assets/img/goUp.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: transparent;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+  outline: none;
+  padding: 0;
+
+}

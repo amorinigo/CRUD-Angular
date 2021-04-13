@@ -1,0 +1,64 @@
+<div class="container-fluid mt-4">
+
+  <div class="card" *ngIf="products.length > 0">
+    <div class="card-body">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>En oferta</th>
+            <th>Código</th>
+            <th class="text-center">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+
+            <td>
+              <a class="text-color-primary" role="button" (click)="goToDetails( product.id )">
+                {{ product.name }}
+              </a>
+            </td>
+            <!-- ESTE DE ABAJO CAMBIA SI ESTÁ EN OFERTA O NO -->
+            <td *ngIf="!product.inOffer">$ {{ product.price | number:'1.2-2' }}</td>
+
+            <td *ngIf="product.inOffer">
+              $ {{ product.price - ((10 * product.price) / 100) | number:'1.2-2' }}
+            </td>
+
+            <td>{{ product.inOffer | offer }}</td>
+
+            <td>{{ product.id }}</td>
+
+            <td class="text-center">
+
+              <a class="btn" (click)="goToDetails( product.id )">
+                <i class="fa fa-eye"></i>
+              </a>
+
+              <a class="btn" (click)="goToForm( product.id )" ><i class="fa fa-pencil"></i></a>
+
+              <button type="button" class="btn" (click)="removeProduct( product.id )">
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
+
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="alert alert-success text-center m-4" role="alert" *ngIf="products.length === 0">
+    No hay productos disponibles. Añade uno nuevo!
+  </div>
+
+  <button
+    type="button"
+    class="btn btn-success col-3 my-5 mx-auto d-block"
+    (click)="goToForm('nuevo')">
+    Añadir
+  </button>
+</div>

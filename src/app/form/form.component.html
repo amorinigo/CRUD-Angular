@@ -1,0 +1,113 @@
+<div class="container-fluid mt-4">
+  <div class="card">
+    <div class="card-body">
+
+      <form [formGroup]="form" (ngSubmit)="saveData()" novalidate autocomplete="off">
+
+        <div class="row">
+          <div class="col mb-4">
+            <img [src]="this.form.get('image').value | image" alt="image" class="image rounded">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label>URL de la imagen</label>
+              <input class="form-control" type="url" formControlName="image">
+              <span class="text-danger" *ngIf="hasErrors( 'image' )">
+                {{ errorMessage( 'image' ) }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label>Nombre del producto</label>
+              <input class="form-control" type="text" formControlName="name">
+
+              <span class="text-danger" *ngIf="hasErrors( 'name' )">
+                {{ errorMessage( 'name' ) }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label>Precio</label>
+              <input class="form-control" type="number" formControlName="price">
+
+              <span class="text-danger" *ngIf="hasErrors( 'price' )">
+                {{ errorMessage( 'price' ) }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label>Descripción del producto</label>
+              <input class="form-control" type="text" formControlName="description">
+
+              <span class="text-danger" *ngIf="hasErrors( 'description' )">
+                {{ errorMessage( 'description' ) }}
+              </span>
+
+            </div>
+          </div>
+        </div>
+
+        <label>¿Es un producto en oferta?</label>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inOffer" formControlName="inOffer" [value]='true'>
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Si
+                </label>
+              </div>
+
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inOffer" formControlName="inOffer" [value]='false'>
+                <label class="form-check-label" for="flexRadioDefault2">
+                  No
+                </label>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+
+              <button type="submit" class="btn btn-primary">
+                Guardar
+              </button>
+
+              <button type="button" class="btn btn-light ml-2" (click)="goBack()">
+                Volver
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <div *ngIf="showOkMessage" class="alert alert-success text-center m-4" role="alert">
+    ¡Producto añadido correctamente!
+  </div>
+</div>

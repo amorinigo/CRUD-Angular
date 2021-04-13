@@ -1,0 +1,71 @@
+<!-- UPPER-SECTION -->
+<div class="upper-section">
+  <div class="selects-ctn w-100 text-center mb-5">
+
+    <select class="select">
+      <option selected> Filtrar </option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+
+    <select class="select">
+      <option selected>Ordenar por</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+
+  </div>
+
+  <figure class="figure">
+    <img src="../../assets/img/banner.png" alt="banner" class="img img-fluid">
+  </figure>
+</div>
+
+<!-- GRID -->
+<div class="container-fluid grid" *ngIf="products.length > 0">
+  <div class="product m-5" *ngFor="let product of products" (click)="goToList( product.id )">
+
+    <figure class="product__figure">
+        <div class="product__img-ctn">
+          <img [src]="product.image" [alt]="product.name" class="product__img">
+
+          <img *ngIf="product.inOffer" src="../../assets/img/offer.png" alt="offer" class="product__img-offer">
+        </div>
+    </figure>
+
+
+    <div class="product__content">
+
+      <h4 class="product__name"> {{ product.name }} </h4>
+
+      <p class="product__description"> {{ product.description }} </p>
+
+      <div class="product__dues">
+
+        <h5>6 Cuotas s/interés</h5>
+
+        <h6 *ngIf="!product.inOffer"> ${{ (product.price / 6) | number:'1.2-2' }} </h6>
+
+        <h6 *ngIf="product.inOffer">
+          ${{ (product.price - ((10 * product.price) / 100)) / 6 | number:'1.2-2' }}
+        </h6>
+
+
+      </div>
+
+      <p class="product__price-ctn">
+        Final:
+        <span class="product__tracing" *ngIf="product.inOffer"> ${{ product.price }} </span>
+
+        <span class="product__price" *ngIf="product.inOffer">
+          ${{ product.price - ((10 * product.price) / 100) }}
+        </span>
+
+        <span class="product__price" *ngIf="!product.inOffer"> ${{ product.price }} </span>
+      </p>
+    </div>
+
+  </div>
+</div>
