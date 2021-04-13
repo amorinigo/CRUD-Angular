@@ -1,0 +1,35 @@
+<!-- UPPER-SECTION -->
+<div class="upper-section">
+  <div class="selects-ctn w-100 text-center mb-5">
+
+    <select class="select" (change)="filter( $event.target.value )">
+      <option value="0" selected>Filtrar</option>
+      <option value="1">En ofertas</option>
+      <option value="2">Sin ofertas</option>
+      <option value="3">Precio mayor a $1000</option>
+      <option value="4">Precio menor a $1000</option>
+    </select>
+
+    <select class="select" (change)="order( $event.target.value )">
+      <option value="0" selected>Ordenar por</option>
+      <option value="1">Ofertas primero</option>
+      <option value="2">Sin ofertas primero</option>
+      <option value="3">Más baratos primero</option>
+      <option value="4">Más caros primero</option>
+    </select>
+
+  </div>
+
+  <figure class="figure">
+    <img src="../../assets/img/banner.png" alt="banner" class="img img-fluid">
+  </figure>
+</div>
+
+<!-- GRID -->
+<div class="container-fluid grid" *ngIf="products.length > 0">
+
+  <div class="product-ctn" *ngFor="let product of products">
+    <app-product [product]="product" (click)="goToList( product.id )"></app-product>
+  </div>
+
+</div>

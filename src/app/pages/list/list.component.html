@@ -1,12 +1,16 @@
 <div class="container-fluid mt-4">
 
+  <div *ngIf="products.length === 0 && !showMessage">
+    CARGANDO...
+  </div>
+
   <div class="card" *ngIf="products.length > 0">
     <div class="card-body">
       <table class="table table-hover">
         <thead>
           <tr>
             <th>Nombre</th>
-            <th>Precio</th>
+            <th>Precio final</th>
             <th>En oferta</th>
             <th>Código</th>
             <th class="text-center">Acciones</th>
@@ -20,12 +24,8 @@
                 {{ product.name }}
               </a>
             </td>
-            <!-- ESTE DE ABAJO CAMBIA SI ESTÁ EN OFERTA O NO -->
-            <td *ngIf="!product.inOffer">$ {{ product.price | number:'1.2-2' }}</td>
 
-            <td *ngIf="product.inOffer">
-              $ {{ product.price - ((10 * product.price) / 100) | number:'1.2-2' }}
-            </td>
+            <td>$ {{ product.finalPrice | number:'1.2-2' }}</td>
 
             <td>{{ product.inOffer | offer }}</td>
 
@@ -51,7 +51,7 @@
     </div>
   </div>
 
-  <div class="alert alert-success text-center m-4" role="alert" *ngIf="products.length === 0">
+  <div class="alert alert-success text-center m-4" role="alert" *ngIf="showMessage">
     No hay productos disponibles. Añade uno nuevo!
   </div>
 

@@ -1,12 +1,44 @@
 {
   "products": [
     {
+      "image": "../assets/img/products/1.png",
+      "name": "Daenerys Targaryen",
+      "price": 2000,
+      "description": "Funko POP | Game Of Thrones - Daenerys 25",
+      "inOffer": true,
+      "id": "EJ27471"
+    },
+    {
       "image": "../assets/img/products/2.png",
-      "name": "RAMIRO",
+      "name": "Davos Seaworth",
       "price": 3000,
       "description": "Funko POP | Game Of Thrones - Davos 62",
-      "inOffer": true,
+      "inOffer": false,
       "id": "EJ27472"
+    },
+    {
+      "image": "../assets/img/products/3.png",
+      "name": "Tormund Giantsbane",
+      "price": 4000,
+      "description": "Funko POP | Game Of Thrones - Tormund 53",
+      "inOffer": false,
+      "id": "EJ27473"
+    },
+    {
+      "image": "../assets/img/products/4.png",
+      "name": "Tyrion Lannister",
+      "price": 5000,
+      "description": "Funko POP | Game Of Thrones - Tyrion 50",
+      "inOffer": true,
+      "id": "EJ27474"
+    },
+    {
+      "image": "../assets/img/products/5.png",
+      "name": "Jon Snow",
+      "price": 3500,
+      "description": "Funko POP | Game Of Thrones - Jon 49",
+      "inOffer": false,
+      "id": "EJ27475"
     },
     {
       "image": "../assets/img/products/6.png",
@@ -25,156 +57,28 @@
       "id": "EJ27477"
     },
     {
-      "image": "",
-      "name": "Pokemón",
-      "price": 1200,
-      "description": "Un pokemón",
-      "inOffer": false,
-      "id": "3fCX1a7"
-    },
-    {
-      "image": "",
-      "name": "feqfeq",
-      "price": 4313,
-      "description": "431fq",
-      "inOffer": false,
-      "id": "nragKFs"
-    },
-    {
-      "image": "../../assets/img/no-image.png",
-      "name": "POKE",
-      "price": 1233333,
-      "description": "POKE",
-      "inOffer": false,
-      "id": "fT-PGLF"
-    },
-    {
-      "image": "../../assets/img/no-image.png",
-      "name": "fqefeq",
-      "price": 431431,
-      "description": "feqfeq",
-      "inOffer": false,
-      "id": "ysk7uLn"
-    },
-    {
-      "image": "../../assets/img/no-image.png",
-      "name": "asddsa",
-      "price": 431431,
-      "description": "asddsa",
-      "inOffer": false,
-      "id": "6FDJy7S"
-    },
-    {
-      "image": "https://imagenpng.com/wp-content/uploads/2017/02/007Squirtle_Pokem.png",
-      "name": "feq",
-      "price": 431431,
-      "description": "feqfeq",
-      "inOffer": false,
-      "id": "iQeYrwF"
-    },
-    {
-      "image": "https://imagenpng.com/wp-content/uploads/2017/02/007Squirtle_Pokem.png",
-      "name": "feqfeq",
-      "price": 431431,
-      "description": "feqfeq",
-      "inOffer": false,
-      "id": "7dckI24"
-    },
-    {
-      "image": "https://imagenpng.com/wp-content/uploads/2017/02/007Squirtle_Pokem.png",
-      "name": "feqfeq",
-      "price": 43141,
-      "description": "feqfqe",
-      "inOffer": false,
-      "id": "Bitdern"
-    },
-    {
-      "image": "https://imagenpng.com/wp-content/uploads/2017/02/007Squirtle_Pokem.png",
-      "name": "jfeioa",
-      "price": 48319,
-      "description": "fjeqio",
-      "inOffer": false,
-      "id": "JLx4-C4"
-    },
-    {
-      "image": "https://imagenpng.com/wp-content/uploads/2017/02/007Squirtle_Pokem.png",
-      "name": "feqfeq",
-      "price": 43141,
-      "description": "fqefqe",
+      "image": "../assets/img/products/8.png",
+      "name": "Ghost",
+      "price": 8000,
+      "description": "Funko POP | Game Of Thrones - Ghost 19",
       "inOffer": true,
-      "id": "CtflZjg"
+      "id": "EJ27478"
     },
     {
-      "image": "https://imagenpng.com/wp-content/uploads/2017/02/007Squirtle_Pokem.png",
-      "name": "feqfeq",
-      "price": 431431,
-      "description": "431431",
+      "image": "https://e7.pngegg.com/pngimages/935/88/png-clipart-pokemon-mystery-dungeon-explorers-of-darkness-time-pokemon-mystery-dungeon-explorers-of-sky-pikachu-pikachu-vertebrate-cartoon-thumbnail.png",
+      "name": "AGU",
+      "price": 2000,
+      "description": "AGU",
       "inOffer": true,
-      "id": "XPDKJbF"
+      "id": "yhqz6Kc"
     },
     {
-      "image": "https://imagenpng.com/wp-content/uploads/2017/02/007Squirtle_Pokem.png",
-      "name": "AGUSCHETO",
-      "price": 111111,
-      "description": "AGUSCHETO",
-      "inOffer": false,
-      "id": "4ynAWMR"
-    },
-    {
-      "image": "https://imagenpng.com/wp-content/uploads/2017/02/007Squirtle_Pokem.png",
-      "name": "RAMIROGIL",
-      "price": 1222,
-      "description": "RAMIROGIL",
-      "inOffer": false,
-      "id": "I8ApotK"
-    },
-    {
-      "image": "https://imagenpng.com/wp-content/uploads/2017/02/007Squirtle_Pokem.png",
-      "name": "feqfeq",
-      "price": 431,
-      "description": "531531",
-      "inOffer": false,
-      "id": "F41OGjC"
-    },
-    {
-      "image": "https://imagenpng.com/wp-content/uploads/2017/02/007Squirtle_Pokem.png",
-      "name": "fqe",
-      "price": 431,
-      "description": "feq",
-      "inOffer": false,
-      "id": "DV-pA8l"
-    },
-    {
-      "image": "https://imagenpng.com/wp-content/uploads/2017/02/007Squirtle_Pokem.png",
-      "name": "feqfeq",
-      "price": 43141,
-      "description": "feqfeq",
-      "inOffer": false,
-      "id": "x15Kcyx"
-    },
-    {
-      "image": "https://imagenpng.com/wp-content/uploads/2017/02/007Squirtle_Pokem.png",
-      "name": "feqfeq",
-      "price": 43141,
-      "description": "feqfeq",
-      "inOffer": false,
-      "id": "S-3dRxB"
-    },
-    {
-      "image": "https://imagenpng.com/wp-content/uploads/2017/02/007Squirtle_Pokem.png",
-      "name": "feqfeqfeq",
-      "price": 431431,
-      "description": "431431",
-      "inOffer": false,
-      "id": "_QJJzUQ"
-    },
-    {
-      "image": "https://imagenpng.com/wp-content/uploads/2017/02/007Squirtle_Pokem.png",
-      "name": "feqfeq",
-      "price": 31431,
-      "description": "feqfqe",
-      "inOffer": false,
-      "id": "jd33kQ6"
+      "image": "https://e7.pngegg.com/pngimages/935/88/png-clipart-pokemon-mystery-dungeon-explorers-of-darkness-time-pokemon-mystery-dungeon-explorers-of-sky-pikachu-pikachu-vertebrate-cartoon-thumbnail.png",
+      "name": "PRUEBA",
+      "price": 2500,
+      "description": "PRUEBA",
+      "inOffer": true,
+      "id": "EAaAtN1"
     }
   ]
 }

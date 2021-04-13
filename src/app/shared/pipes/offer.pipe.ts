@@ -1,8 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({
-  name: 'offer'
-})
+@Pipe({ name: 'offer' })
 export class OfferPipe implements PipeTransform {
 
   transform(inOffer: boolean): string {

@@ -30,12 +30,7 @@
   <p class="product__price-ctn">
     Final:
     <span class="product__tracing" *ngIf="product.inOffer"> ${{ product.price }} </span>
-
-    <span class="product__price" *ngIf="product.inOffer">
-      ${{ product.price - ((10 * product.price) / 100) }}
-    </span>
-
-    <span class="product__price" *ngIf="!product.inOffer"> ${{ product.price }} </span>
+    <span class="product__price"> ${{ product.finalPrice }} </span>
   </p>
 </div>
 </div>

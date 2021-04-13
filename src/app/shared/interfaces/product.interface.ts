@@ -4,5 +4,6 @@ export interface Product {
   image       :  string,
   price       :  number,
   inOffer     :  boolean,
+  finalPrice  :  number,
   id          ?: string
 }

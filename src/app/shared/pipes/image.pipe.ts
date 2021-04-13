@@ -12,7 +12,7 @@ export class ImagePipe implements PipeTransform {
       return 'assets/img/no-image.png';
     } else if( this.imageRegex.test(url) ) {
       return url;
-    } else if( url.substring(0,9) === '../assets' ) {
+    } else if( url?.substring(0,9) === '../assets' ) {
       return url;
     } else {
       return 'assets/img/no-image.png';
