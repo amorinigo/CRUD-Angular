@@ -14,3 +14,8 @@
   outline: none;
   padding: 0;
 }
+
+.footer {
+  height: 150px;
+  @include display-flex();
+}

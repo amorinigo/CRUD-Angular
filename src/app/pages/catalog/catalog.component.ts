@@ -1,5 +1,4 @@
 import { Component, OnInit }  from '@angular/core';
-import { Router }             from '@angular/router';
 import { Product }            from '../../shared/interfaces/product.interface';
 import { ProductsService }    from '../../shared/services/products.service';
 
@@ -10,82 +9,61 @@ import { ProductsService }    from '../../shared/services/products.service';
 })
 export class CatalogComponent implements OnInit {
 
-  public products: Product[] = [];
+  public products    : Product[] = [];
+  public page        : number    = 1;
+  public showMessage : boolean   = false;
 
-  constructor( private productsSvc: ProductsService,
-               private router: Router ) { }
+  constructor( private productsSvc: ProductsService ) {}
 
   ngOnInit(): void {
-    this.productsSvc.getProducts().subscribe( resp => this.products = resp );
+    this.productsSvc.getProducts().subscribe( resp => {
+      this.products = resp;
+      ( this.products.length === 0 ) ? this.showMessage = true : this.showMessage = false;
+    });
   }
 
-  goToList( id: number ) {
-    this.router.navigate( ['lista', id] );
+  public goToList( id: string ): void {
+    this.productsSvc.goToList( id );
   }
 
-  filter( value: string ) {
+  public filter( value: string ): void {
+
+    this.productsSvc.getProducts().subscribe( resp => {
+      this.getFilterOf( value, resp );
+      ( this.products.length === 0 ) ? this.showMessage = true : this.showMessage = false;
+    });
+
+  }
+
+  private getFilterOf( value: string, resp: Product[] ): Product[] {
+    switch( value ) {
+      case '0' : return this.products = resp;
+      case '1' : return this.products = resp.filter( product => product.inOffer );
+      case '2' : return this.products = resp.filter( product => !product.inOffer );
+      case '3' : return this.products = resp.filter( product => product.finalPrice > 1000 );
+      case '4' : return this.products = resp.filter( product => product.finalPrice < 1000 );
+    }
+  }
+
+  public order( value: string ): Product[] {
 
     switch( value ) {
-      case '0' : return this.productsSvc.getProducts().subscribe(
-        resp => this.products = resp
+
+      case '0': return;
+
+      case '1': return this.products = this.products.sort( a => (a.inOffer)  ? -1 : 1 );
+
+      case '2': return this.products = this.products.sort( a => (!a.inOffer) ? -1 : 1 );
+
+      case '3': return this.products = this.products.sort(
+        (a, b) => (a.finalPrice < b.finalPrice) ? -1 : 0
       );
 
-      case '1' : return this.productsSvc.getProducts().subscribe( resp =>
-        this.products = resp.filter( product => product.inOffer )
+      case '4': return this.products = this.products.sort(
+        (a, b) => (a.finalPrice > b.finalPrice) ? -1 : 0
       );
 
-      case '2' : return this.productsSvc.getProducts().subscribe( resp =>
-        this.products = resp.filter( product => !product.inOffer )
-      );
-
-      case '3' : return this.productsSvc.getProducts().subscribe( resp =>
-        this.products = resp.filter( product => product.finalPrice > 1000 )
-      );
-
-      case '4' : return this.productsSvc.getProducts().subscribe( resp =>
-        this.products = resp.filter( product => product.finalPrice < 1000 )
-      );
     }
 
-  }
-
-  order( value: string ) {
-    switch( value ) {
-
-      case '0': return this.productsSvc.getProducts().subscribe( resp => this.products = resp );
-
-      case '1': return this.products = this.products.sort( (productA, productB) => {
-        if( productA.inOffer ) {
-          return -1;
-        } else {
-          return 1;
-        }
-      });
-
-      case '2': return this.products = this.products.sort( (productA, productB) => {
-        if( !productA.inOffer ) {
-          return -1;
-        } else {
-          return 1;
-        }
-      });
-
-      case '3': return this.products = this.products.sort( (productA, productB) => {
-        if( productA.finalPrice < productB.finalPrice ) {
-          return -1;
-        } else {
-          return 1;
-        }
-      });
-
-      case '4': return this.products = this.products.sort( (productA, productB) => {
-
-        if( productA.finalPrice > productB.finalPrice ) {
-          return -1;
-        } else {
-          return 1;
-        }
-      });
-    }
   }
 }

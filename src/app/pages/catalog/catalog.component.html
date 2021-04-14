@@ -1,6 +1,6 @@
-<!-- UPPER-SECTION -->
+<!-- SELECTS-SECTION -->
 <div class="upper-section">
-  <div class="selects-ctn w-100 text-center mb-5">
+  <div class="selects-ctn w-100 text-center mb-5 animate__animated animate__fadeIn">
 
     <select class="select" (change)="filter( $event.target.value )">
       <option value="0" selected>Filtrar</option>
@@ -20,7 +20,7 @@
 
   </div>
 
-  <figure class="figure">
+  <figure class="figure animate__animated animate__fadeIn">
     <img src="../../assets/img/banner.png" alt="banner" class="img img-fluid">
   </figure>
 </div>
@@ -28,8 +28,26 @@
 <!-- GRID -->
 <div class="container-fluid grid" *ngIf="products.length > 0">
 
-  <div class="product-ctn" *ngFor="let product of products">
+  <div
+    class="product-ctn animate__animated animate__fadeIn"
+    *ngFor="let product of products | paginate: { itemsPerPage: 5, currentPage: page }"
+  >
     <app-product [product]="product" (click)="goToList( product.id )"></app-product>
   </div>
 
+</div>
+
+<!-- MESSAGE -->
+<div
+  class="alert alert-success m-4 text-center animate__animated animate__fadeIn"
+  role="alert"
+  *ngIf="showMessage"
+>
+  No hay productos para mostrar!
+</div>
+
+<!-- PAGINATION -->
+<div class="pagination-ctn" *ngIf="!showMessage">
+  <pagination-controls (pageChange)="page = $event" previousLabel="" nextLabel="">
+  </pagination-controls>
 </div>

@@ -1,10 +1,17 @@
-<div class="container-fluid mt-4">
+<div class="container-fluid mt-4 animate__animated animate__fadeIn">
+
+  <input
+    #searchInput
+    class="form-control mb-5 animate__animated animate__fadeIn" type="text"
+    placeholder="Buscar un producto..." aria-label="default input example"
+    (input)="search( searchInput.value )"
+  >
 
   <div *ngIf="products.length === 0 && !showMessage">
     CARGANDO...
   </div>
 
-  <div class="card" *ngIf="products.length > 0">
+  <div class="card animate__animated animate__fadeIn" *ngIf="products.length > 0">
     <div class="card-body">
       <table class="table table-hover">
         <thead>
@@ -51,14 +58,23 @@
     </div>
   </div>
 
-  <div class="alert alert-success text-center m-4" role="alert" *ngIf="showMessage">
-    No hay productos disponibles. Añade uno nuevo!
+  <div
+    class="d-grid gap-2 d-sm-flex justify-content-sm-end mt-4 animate__animated animate__fadeIn" *ngIf="showButton"
+  >
+    <button class="btn btn-warning" type="button" (click)="showAllProducts()">Mostar todos</button>
+  </div>
+
+  <div
+    class="alert alert-success text-center m-4 animate__animated animate__fadeIn" role="alert" *ngIf="showMessage"
+  >
+    No hay productos disponibles.
   </div>
 
   <button
     type="button"
-    class="btn btn-success col-3 my-5 mx-auto d-block"
-    (click)="goToForm('nuevo')">
+    class="btn btn-success col-3 my-5 mx-auto d-block animate__animated animate__fadeIn"
+    (click)="goToForm('nuevo')"
+  >
     Añadir
   </button>
 </div>

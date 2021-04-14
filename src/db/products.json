@@ -1,30 +1,6 @@
 {
   "products": [
     {
-      "image": "../assets/img/products/1.png",
-      "name": "Daenerys Targaryen",
-      "price": 2000,
-      "description": "Funko POP | Game Of Thrones - Daenerys 25",
-      "inOffer": true,
-      "id": "EJ27471"
-    },
-    {
-      "image": "../assets/img/products/2.png",
-      "name": "Davos Seaworth",
-      "price": 3000,
-      "description": "Funko POP | Game Of Thrones - Davos 62",
-      "inOffer": false,
-      "id": "EJ27472"
-    },
-    {
-      "image": "../assets/img/products/3.png",
-      "name": "Tormund Giantsbane",
-      "price": 4000,
-      "description": "Funko POP | Game Of Thrones - Tormund 53",
-      "inOffer": false,
-      "id": "EJ27473"
-    },
-    {
       "image": "../assets/img/products/4.png",
       "name": "Tyrion Lannister",
       "price": 5000,
@@ -66,19 +42,35 @@
     },
     {
       "image": "https://e7.pngegg.com/pngimages/935/88/png-clipart-pokemon-mystery-dungeon-explorers-of-darkness-time-pokemon-mystery-dungeon-explorers-of-sky-pikachu-pikachu-vertebrate-cartoon-thumbnail.png",
-      "name": "AGU",
-      "price": 2000,
-      "description": "AGU",
+      "name": "feqfeq",
+      "price": 431431,
+      "description": "feqfeq",
       "inOffer": true,
-      "id": "yhqz6Kc"
+      "id": "V7uY-_w"
     },
     {
       "image": "https://e7.pngegg.com/pngimages/935/88/png-clipart-pokemon-mystery-dungeon-explorers-of-darkness-time-pokemon-mystery-dungeon-explorers-of-sky-pikachu-pikachu-vertebrate-cartoon-thumbnail.png",
-      "name": "PRUEBA",
-      "price": 2500,
-      "description": "PRUEBA",
+      "name": "feq",
+      "price": 431413,
+      "description": "feqfeq",
+      "inOffer": false,
+      "id": "C5pZHyt"
+    },
+    {
+      "image": "https://e7.pngegg.com/pngimages/935/88/png-clipart-pokemon-mystery-dungeon-explorers-of-darkness-time-pokemon-mystery-dungeon-explorers-of-sky-pikachu-pikachu-vertebrate-cartoon-thumbnail.png",
+      "name": "NUEVOOO",
+      "price": 3481,
+      "description": "NUEVO",
       "inOffer": true,
-      "id": "EAaAtN1"
+      "id": "yqSJ7Br"
+    },
+    {
+      "image": "https://e7.pngegg.com/pngimages/935/88/png-clipart-pokemon-mystery-dungeon-explorers-of-darkness-time-pokemon-mystery-dungeon-explorers-of-sky-pikachu-pikachu-vertebrate-cartoon-thumbnail.png",
+      "name": "NUEVO3",
+      "price": 2000,
+      "description": "EFFEQ",
+      "inOffer": false,
+      "id": "cDMJJ84"
     }
   ]
 }

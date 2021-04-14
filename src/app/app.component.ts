@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  goToTop() { window.scrollTo(0, 0); }
+  public goToTop(): void {
+    window.scrollTo(0, 0);
+  }
 
 }

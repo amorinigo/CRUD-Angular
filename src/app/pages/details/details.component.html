@@ -1,14 +1,32 @@
-<h2 class="text-center m-5" *ngIf="product"> {{ product.name }} </h2>
+<h2 class="text-center m-5 animate__animated animate__fadeIn" *ngIf="product">
+  {{ product.name }}
+</h2>
 
 <app-product [product]="product" *ngIf="product"></app-product>
 
-<div class="buttons">
+<div class="buttons animate__animated animate__fadeIn">
 
   <div class="d-grid gap-2 d-block m-4 text-center">
-    <button class="btn btn-primary col-2" type="button">Editar</button>
-    <button class="btn btn-danger ml-3 col-2" type="button">Eliminar</button>
+
+    <button class="btn btn-primary col-2" type="button" (click)="goToEdit( product.id )">
+      Editar
+    </button>
+
+    <button
+      class="btn btn-danger ml-3 col-2"
+      type="button"
+      (click)="removeProduct( product.id )"
+    >
+      Eliminar
+    </button>
   </div>
 
-  <button type="button" class="btn btn-success col-3 my-5 mx-auto d-block">Volver</button>
+  <button
+    type="button"
+    class="btn btn-success col-3 my-5 mx-auto d-block animate__animated animate__fadeIn"
+    (click)="goBack()"
+  >
+    Volver
+  </button>
 
 </div>

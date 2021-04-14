@@ -1,15 +1,14 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule }             from '@angular/core';
+import { CommonModule }         from '@angular/common';
 
-import { CatalogComponent } from './catalog/catalog.component';
-import { DetailsComponent } from './details/details.component';
-import { FormComponent } from './form/form.component';
-import { ListComponent } from './list/list.component';
+import { SharedModule }         from '../shared/shared.module';
+import { ReactiveFormsModule }  from '@angular/forms';
+import { NgxPaginationModule }  from 'ngx-pagination';
 
-import { SharedModule } from '../shared/shared.module';
-import { ReactiveFormsModule } from '@angular/forms';
-
-
+import { CatalogComponent }     from './catalog/catalog.component';
+import { DetailsComponent }     from './details/details.component';
+import { FormComponent }        from './form/form.component';
+import { ListComponent }        from './list/list.component';
 
 @NgModule({
   declarations: [
@@ -21,10 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    SharedModule
-  ],
-  exports: [
-
+    SharedModule,
+    NgxPaginationModule
   ]
 })
 export class PagesModule { }

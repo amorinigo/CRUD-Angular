@@ -1,5 +1,5 @@
 <div class="container-fluid mt-4">
-  <div class="card">
+  <div class="card animate__animated animate__fadeIn">
     <div class="card-body">
 
       <form [formGroup]="form" (ngSubmit)="saveData()" novalidate autocomplete="off">
@@ -89,13 +89,13 @@
 
         <div class="row">
           <div class="col-sm-12">
-            <div class="form-group">
+            <div class="form-group animate__animated animate__fadeIn">
 
               <button type="submit" class="btn btn-primary">
                 Guardar
               </button>
 
-              <button type="button" class="btn btn-light ml-2" (click)="goBack()">
+              <button type="button" class="btn btn-light ml-2" (click)="goToList()">
                 Volver
               </button>
             </div>
@@ -105,9 +105,5 @@
       </form>
 
     </div>
-  </div>
-
-  <div *ngIf="showOkMessage" class="alert alert-success text-center m-4" role="alert">
-    ¡Producto añadido correctamente!
   </div>
 </div>
