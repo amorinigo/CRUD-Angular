@@ -19,7 +19,10 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.pipe( switchMap( ({ id }) => this.httpSvc.getProduct( id ) ) )
-        .subscribe( resp => this.product = resp );
+        .subscribe(
+          resp => this.product = resp,
+          err => this.productsSvc.goToCatalog()
+        );
   }
 
   public removeProduct( id: string ): void {

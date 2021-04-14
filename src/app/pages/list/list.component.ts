@@ -3,7 +3,7 @@ import { ActivatedRoute }      from '@angular/router';
 import { Product }             from '../../shared/interfaces/product.interface';
 import { ProductsService }     from '../../shared/services/products.service';
 import { ProductsHttpService } from 'src/app/shared/services/products-http.service';
-import { switchMap }           from 'rxjs/operators';
+import { switchMap, tap }      from 'rxjs/operators';
 
 @Component({
   selector: 'app-list',
@@ -14,6 +14,7 @@ export class ListComponent implements OnInit {
   public products    : Product[] = [];
   public showMessage : boolean   = false;
   public showButton  : boolean   = false;
+  public id          : string;
   @ViewChild('searchInput') searchInput: ElementRef<HTMLInputElement>;
 
   constructor( private productSvc     : ProductsService,
@@ -21,17 +22,25 @@ export class ListComponent implements OnInit {
                private activatedRoute : ActivatedRoute ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe( ({ id }) => {
+    this.activatedRoute.params
+      .pipe(
+        tap( ({ id }) => this.id = id ),
+        switchMap( ({ id }) => this.httpSvc.getProducts() )
+      )
+      .subscribe( resp => {
 
-      if( id !== '0' ) {
-        this.search( id );
-        this.showButton = true;
-      } else {
-        this.httpSvc.getProducts().subscribe( resp => this.refreshList( resp ));
-        this.showButton = false;
-      }
+        if( this.id !== '0' ) {
+          resp = resp.filter( product => product.id === this.id );
+          if( resp.length === 0 ) return this.productSvc.goToCatalog();
 
-    });
+          this.search( this.id );
+          this.showButton = true;
+        } else {
+          this.refreshList( resp );
+          this.showButton = false;
+        }
+
+      });
   }
 
   private refreshList = ( newList: Product[] ): void => {

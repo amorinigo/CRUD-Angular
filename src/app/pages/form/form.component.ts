@@ -11,10 +11,10 @@ import { Product }             from '../../shared/interfaces/product.interface';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
-  public  product       : Product;
-  public  form          : FormGroup;
-  private id            : string;
-  private imgRegex      : RegExp = /[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/gi;
+  public  product  : Product;
+  public  form     : FormGroup;
+  private id       : string;
+  private imgRegex : RegExp = /[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/gi;
 
 
   constructor( private activatedRoute : ActivatedRoute,
@@ -32,7 +32,10 @@ export class FormComponent implements OnInit {
   }
 
   private loadForm( id: string ): void {
-    this.httpSvc.getProduct( id ).subscribe( resp => this.form.patchValue( resp ));
+    this.httpSvc.getProduct( id ).subscribe(
+      resp => this.form.patchValue( resp ),
+      err  => this.productsSvc.goToCatalog()
+    );
   }
 
   private buildForm(): void {

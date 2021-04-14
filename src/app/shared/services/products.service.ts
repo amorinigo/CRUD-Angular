@@ -25,6 +25,10 @@ export class ProductsService {
     return this.router.navigate(['formulario', id]);
   }
 
+  public goToCatalog() {
+    return this.router.navigate(['catálogo']);
+  }
+
   private alertConfig: SweetAlertOptions = {
     title: '¿Está seguro que quiere eliminar este producto?',
     text: 'Una vez aceptado, no podrá revertir los cambios',
