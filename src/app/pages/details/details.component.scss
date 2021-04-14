@@ -1,0 +1,12 @@
+.title { text-align: center; }
+
+@media( min-width: 967px ) {
+  .title { font-size: 50px; }
+
+  .ctn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+  }
+}

@@ -30,7 +30,7 @@
 
   <div
     class="product-ctn animate__animated animate__fadeIn"
-    *ngFor="let product of products | paginate: { itemsPerPage: 5, currentPage: page }"
+    *ngFor="let product of products | paginate: { itemsPerPage: 6, currentPage: page }"
   >
     <app-product [product]="product" (click)="goToList( product.id )"></app-product>
   </div>

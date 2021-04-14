@@ -7,7 +7,8 @@ import { switchMap, tap }      from 'rxjs/operators';
 
 @Component({
   selector: 'app-list',
-  templateUrl: './list.component.html'
+  templateUrl: './list.component.html',
+  styles: [`.div { min-height: 600px; }`]
 })
 export class ListComponent implements OnInit {
 

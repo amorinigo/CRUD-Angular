@@ -5,7 +5,7 @@
       <form [formGroup]="form" (ngSubmit)="saveData()" novalidate autocomplete="off">
 
         <div class="row">
-          <div class="col mb-4">
+          <div class="img-ctn col mb-4">
             <img [src]="this.form.get('image').value | image" alt="image" class="image rounded">
           </div>
         </div>

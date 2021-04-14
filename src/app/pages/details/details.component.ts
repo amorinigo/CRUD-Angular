@@ -29,7 +29,7 @@ export class DetailsComponent implements OnInit {
 
     this.productsSvc.showDeleteAlert().then( result => {
       if (result.isConfirmed) {
-        this.httpSvc.removeProduct( id ).subscribe( () => this.productsSvc.goBack() );
+        this.httpSvc.removeProduct( id ).subscribe( () => this.productsSvc.goToList( '0' ) );
         this.productsSvc.showDeleteMessage()
       }
     })

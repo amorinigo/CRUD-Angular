@@ -1,6 +1,38 @@
 {
   "products": [
     {
+      "image": "../assets/img/products/5.png",
+      "name": "Davos Seaworth",
+      "price": 3000,
+      "description": "Funko POP | Game Of Thrones - Davos 62",
+      "inOffer": false,
+      "id": "EJ27472"
+    },
+    {
+      "image": "../assets/img/products/3.png",
+      "name": "Tormund Giantsbane",
+      "price": 4000,
+      "description": "Funko POP | Game Of Thrones - Tormund 53",
+      "inOffer": false,
+      "id": "EJ27473"
+    },
+    {
+      "image": "../assets/img/products/4.png",
+      "name": "Tyrion Lannister",
+      "price": 5000,
+      "description": "Funko POP | Game Of Thrones - Tyrion 50",
+      "inOffer": true,
+      "id": "EJ27474"
+    },
+    {
+      "image": "../assets/img/products/5.png",
+      "name": "Jon Snow",
+      "price": 3500,
+      "description": "Funko POP | Game Of Thrones - Jon 49",
+      "inOffer": false,
+      "id": "EJ27475"
+    },
+    {
       "image": "../assets/img/products/6.png",
       "name": "Night King",
       "price": 5300,
@@ -25,68 +57,12 @@
       "id": "EJ27478"
     },
     {
-      "image": "https://e7.pngegg.com/pngimages/935/88/png-clipart-pokemon-mystery-dungeon-explorers-of-darkness-time-pokemon-mystery-dungeon-explorers-of-sky-pikachu-pikachu-vertebrate-cartoon-thumbnail.png",
-      "name": "feqfeq",
-      "price": 431431,
-      "description": "feqfeq",
+      "image": "https://www.ecestaticos.com/image/clipping/26ab9315ee8503a9e27bc4501f1a36dd/los-juguetes-de-los-anos-90-que-ahora-pueden-valer-miles-de-euros.jpg",
+      "name": "sss",
+      "price": 33,
+      "description": "sss",
       "inOffer": true,
-      "id": "V7uY-_w"
-    },
-    {
-      "image": "https://e7.pngegg.com/pngimages/935/88/png-clipart-pokemon-mystery-dungeon-explorers-of-darkness-time-pokemon-mystery-dungeon-explorers-of-sky-pikachu-pikachu-vertebrate-cartoon-thumbnail.png",
-      "name": "feq",
-      "price": 431413,
-      "description": "feqfeq",
-      "inOffer": false,
-      "id": "C5pZHyt"
-    },
-    {
-      "image": "https://e7.pngegg.com/pngimages/935/88/png-clipart-pokemon-mystery-dungeon-explorers-of-darkness-time-pokemon-mystery-dungeon-explorers-of-sky-pikachu-pikachu-vertebrate-cartoon-thumbnail.png",
-      "name": "NUEVOOO",
-      "price": 3481,
-      "description": "NUEVO",
-      "inOffer": true,
-      "id": "yqSJ7Br"
-    },
-    {
-      "image": "https://e7.pngegg.com/pngimages/935/88/png-clipart-pokemon-mystery-dungeon-explorers-of-darkness-time-pokemon-mystery-dungeon-explorers-of-sky-pikachu-pikachu-vertebrate-cartoon-thumbnail.png",
-      "name": "NUEVO3",
-      "price": 2000,
-      "description": "EFFEQ",
-      "inOffer": false,
-      "id": "cDMJJ84"
-    },
-    {
-      "image": "https://e7.pngegg.com/pngimages/935/88/png-clipart-pokemon-mystery-dungeon-explorers-of-darkness-time-pokemon-mystery-dungeon-explorers-of-sky-pikachu-pikachu-vertebrate-cartoon-thumbnail.png",
-      "name": "feqfqe",
-      "price": 34314,
-      "description": "feqfeq",
-      "inOffer": false,
-      "id": "GbxMbv2"
-    },
-    {
-      "image": "https://e7.pngegg.com/pngimages/935/88/png-clipart-pokemon-mystery-dungeon-explorers-of-darkness-time-pokemon-mystery-dungeon-explorers-of-sky-pikachu-pikachu-vertebrate-cartoon-thumbnail.png",
-      "name": "PUTO",
-      "price": 43141,
-      "description": "feqgq",
-      "inOffer": false,
-      "id": "lkK4xIB"
-    },
-    {
-      "image": "https://e7.pngegg.com/pngimages/935/88/png-clipart-pokemon-mystery-dungeon-explorers-of-darkness-time-pokemon-mystery-dungeon-explorers-of-sky-pikachu-pikachu-vertebrate-cartoon-thumbnail.png",
-      "name": "feqfeq",
-      "price": 431433,
-      "description": "feqfe",
-      "inOffer": false,
-      "id": "LxKR7wu"
-    },
-    {
-      "image": "https://e7.pngegg.com/pngimages/935/88/png-clipart-pokemon-mystery-dungeon-explorers-of-darkness-time-pokemon-mystery-dungeon-explorers-of-sky-pikachu-pikachu-vertebrate-cartoon-thumbnail.png",
-      "name": "CHETOMALREY",
-      "price": 3737,
-      "description": "3737FJEQOI",
-      "inOffer": false,
-      "id": "yOMJjnb"
+      "id": "76FXTm3"
     }
   ]
 }

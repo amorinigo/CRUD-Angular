@@ -1,31 +1,24 @@
-<h2 class="text-center m-5 animate__animated animate__fadeIn" *ngIf="product">
+<h2 class="title m-5 animate__animated animate__fadeIn" *ngIf="product">
   {{ product.name }}
 </h2>
 
-<app-product [product]="product" *ngIf="product"></app-product>
+<div class="ctn">
+  <app-product [product]="product" *ngIf="product"></app-product>
+</div>
 
-<div class="buttons animate__animated animate__fadeIn">
+<div *ngIf="product" class="btn-group-vertical w-100 mt-5 animate__animated animate__fadeIn">
 
-  <div class="d-grid gap-2 d-block m-4 text-center">
+  <button class="btn btn-primary col-4 col-md-3 mx-auto d-block" type="button"
+  (click)="goToEdit( product.id )">
+    Editar
+  </button>
 
-    <button class="btn btn-primary col-2" type="button" (click)="goToEdit( product.id )">
-      Editar
-    </button>
+  <button class="btn btn-danger col-4 col-md-3 my-3 mx-auto d-block" type="button"
+  (click)="removeProduct( product.id )">
+    Eliminar
+  </button>
 
-    <button
-      class="btn btn-danger ml-3 col-2"
-      type="button"
-      (click)="removeProduct( product.id )"
-    >
-      Eliminar
-    </button>
-  </div>
-
-  <button
-    type="button"
-    class="btn btn-success col-3 my-5 mx-auto d-block animate__animated animate__fadeIn"
-    (click)="goBack()"
-  >
+  <button class="btn btn-success col-4 col-md-3 mx-auto d-block" type="button" (click)="goBack()">
     Volver
   </button>
 
