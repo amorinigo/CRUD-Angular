@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { ActivatedRoute }    from '@angular/router';
-import { Product }           from '../../shared/interfaces/product.interface';
-import { ProductsService }   from '../../shared/services/products.service';
-import { switchMap }         from 'rxjs/operators';
+import { ActivatedRoute }      from '@angular/router';
+import { Product }             from '../../shared/interfaces/product.interface';
+import { ProductsService }     from '../../shared/services/products.service';
+import { ProductsHttpService } from 'src/app/shared/services/products-http.service';
+import { switchMap }           from 'rxjs/operators';
 
 @Component({
   selector: 'app-list',
@@ -16,6 +17,7 @@ export class ListComponent implements OnInit {
   @ViewChild('searchInput') searchInput: ElementRef<HTMLInputElement>;
 
   constructor( private productSvc     : ProductsService,
+               private httpSvc        : ProductsHttpService,
                private activatedRoute : ActivatedRoute ) {}
 
   ngOnInit(): void {
@@ -25,7 +27,7 @@ export class ListComponent implements OnInit {
         this.search( id );
         this.showButton = true;
       } else {
-        this.productSvc.getProducts().subscribe( resp => this.refreshList( resp ));
+        this.httpSvc.getProducts().subscribe( resp => this.refreshList( resp ));
         this.showButton = false;
       }
 
@@ -59,8 +61,8 @@ export class ListComponent implements OnInit {
   }
 
   private runCleanup( id: string ): void {
-    this.productSvc.removeProduct( id )
-      .pipe( switchMap(() => this.productSvc.getProducts()) )
+    this.httpSvc.removeProduct( id )
+      .pipe( switchMap(() => this.httpSvc.getProducts()) )
       .subscribe( products => this.refreshList( products ) );
 
     if (this.products.length === 1) {
@@ -74,7 +76,7 @@ export class ListComponent implements OnInit {
   public search( value: string ): void {
     this.showButton = false;
 
-    this.productSvc.getProducts().subscribe( resp => {
+    this.httpSvc.getProducts().subscribe( resp => {
       let result: Product[] = [];
 
       if( value.length === 0 ) return this.products = resp;
@@ -91,7 +93,7 @@ export class ListComponent implements OnInit {
   }
 
   public showAllProducts(): void {
-    this.productSvc.getProducts().subscribe( resp => this.products = resp );
+    this.httpSvc.getProducts().subscribe( resp => this.products = resp );
     this.showButton = false;
   }
 }

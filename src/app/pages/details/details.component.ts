@@ -1,8 +1,9 @@
-import { Component, OnInit }  from '@angular/core';
-import { ActivatedRoute }     from '@angular/router';
-import { ProductsService }    from '../../shared/services/products.service';
-import { Product }            from '../../shared/interfaces/product.interface';
-import { switchMap }          from 'rxjs/operators';
+import { Component, OnInit }   from '@angular/core';
+import { ActivatedRoute }      from '@angular/router';
+import { ProductsService }     from '../../shared/services/products.service';
+import { ProductsHttpService } from 'src/app/shared/services/products-http.service';
+import { Product }             from '../../shared/interfaces/product.interface';
+import { switchMap }           from 'rxjs/operators';
 
 @Component({
   selector: 'app-details',
@@ -13,10 +14,11 @@ export class DetailsComponent implements OnInit {
   public product: Product;
 
   constructor( private activatedRoute : ActivatedRoute,
-               private productsSvc    : ProductsService ) {}
+               private productsSvc    : ProductsService,
+               private httpSvc        : ProductsHttpService ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params.pipe( switchMap( ({ id }) => this.productsSvc.getProduct( id ) ) )
+    this.activatedRoute.params.pipe( switchMap( ({ id }) => this.httpSvc.getProduct( id ) ) )
         .subscribe( resp => this.product = resp );
   }
 
@@ -24,7 +26,7 @@ export class DetailsComponent implements OnInit {
 
     this.productsSvc.showDeleteAlert().then( result => {
       if (result.isConfirmed) {
-        this.productsSvc.removeProduct( id ).subscribe( () => this.productsSvc.goBack() );
+        this.httpSvc.removeProduct( id ).subscribe( () => this.productsSvc.goBack() );
         this.productsSvc.showDeleteMessage()
       }
     })

@@ -5,9 +5,10 @@
     class="form-control mb-5 animate__animated animate__fadeIn" type="text"
     placeholder="Buscar un producto..." aria-label="default input example"
     (input)="search( searchInput.value )"
+    *ngIf="products.length > 0"
   >
 
-  <div *ngIf="products.length === 0 && !showMessage">
+  <div class="text-center" *ngIf="products.length === 0 && !showMessage">
     CARGANDO...
   </div>
 
@@ -39,16 +40,9 @@
             <td>{{ product.id }}</td>
 
             <td class="text-center">
-
-              <a class="btn" (click)="goToDetails( product.id )">
-                <i class="fa fa-eye"></i>
-              </a>
-
+              <a class="btn" (click)="goToDetails( product.id )"><i class="fa fa-eye"></i></a>
               <a class="btn" (click)="goToForm( product.id )" ><i class="fa fa-pencil"></i></a>
-
-              <button type="button" class="btn" (click)="removeProduct( product.id )">
-                <i class="fa fa-trash"></i>
-              </button>
+              <a class="btn" (click)="removeProduct( product.id )"><i class="fa fa-trash"></i></a>
             </td>
 
           </tr>

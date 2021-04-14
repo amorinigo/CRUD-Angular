@@ -1,8 +1,9 @@
-import { Component, OnInit }  from '@angular/core';
+import { Component, OnInit }   from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute }     from '@angular/router';
-import { ProductsService }    from '../../shared/services/products.service';
-import { Product }            from '../../shared/interfaces/product.interface';
+import { ActivatedRoute }      from '@angular/router';
+import { ProductsService }     from '../../shared/services/products.service';
+import { ProductsHttpService } from 'src/app/shared/services/products-http.service';
+import { Product }             from '../../shared/interfaces/product.interface';
 
 @Component({
   selector: 'app-form',
@@ -18,6 +19,7 @@ export class FormComponent implements OnInit {
 
   constructor( private activatedRoute : ActivatedRoute,
                private productsSvc    : ProductsService,
+               private httpSvc        : ProductsHttpService,
                private formBuilder    : FormBuilder ) {
     this.buildForm();
   }
@@ -30,7 +32,7 @@ export class FormComponent implements OnInit {
   }
 
   private loadForm( id: string ): void {
-    this.productsSvc.getProduct( id ).subscribe( resp => this.form.patchValue( resp ));
+    this.httpSvc.getProduct( id ).subscribe( resp => this.form.patchValue( resp ));
   }
 
   private buildForm(): void {
@@ -51,10 +53,10 @@ export class FormComponent implements OnInit {
     this.product = formData;
 
     if( this.id === 'nuevo' ) {
-      this.productsSvc.addNewProduct( this.product ).subscribe();
+      this.httpSvc.addNewProduct( this.product ).subscribe();
       this.resetForm();
     } else {
-      this.productsSvc.updateProduct( this.id, this.product ).subscribe( () => {
+      this.httpSvc.updateProduct( this.id, this.product ).subscribe( () => {
         this.productsSvc.showUpdateMessage();
       });
     }
