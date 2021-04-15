@@ -41,7 +41,7 @@ export class FormComponent implements OnInit {
 
   private buildForm(): void {
     this.form = this.formBuilder.group({
-      image:        ['', [ Validators.required, Validators.pattern(this.imgRegex)]],
+      image:        ['', [Validators.required, Validators.pattern(this.imgRegex)]],
       name:         ['', [Validators.required, Validators.minLength(3)]],
       price:        ['', [Validators.required, Validators.min(10), Validators.max(10000000)]],
       description:  ['', [Validators.required, Validators.minLength(3)]],
