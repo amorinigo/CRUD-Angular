@@ -31,41 +31,13 @@ export class CatalogComponent implements OnInit {
   public filter( value: string ): void {
 
     this.httpSvc.getProducts().subscribe( resp => {
-      this.getFilterOf( value, resp );
+      this.products = this.productsSvc.getFilterOf( value, resp );
       ( this.products.length === 0 ) ? this.showMessage = true : this.showMessage = false;
     });
 
   }
 
-  private getFilterOf( value: string, resp: Product[] ): Product[] {
-    switch( value ) {
-      case '0' : return this.products = resp;
-      case '1' : return this.products = resp.filter( product => product.inOffer );
-      case '2' : return this.products = resp.filter( product => !product.inOffer );
-      case '3' : return this.products = resp.filter( product => product.finalPrice > 1000 );
-      case '4' : return this.products = resp.filter( product => product.finalPrice < 1000 );
-    }
-  }
-
   public order( value: string ): Product[] {
-
-    switch( value ) {
-
-      case '0': return;
-
-      case '1': return this.products = this.products.sort( a => (a.inOffer)  ? -1 : 1 );
-
-      case '2': return this.products = this.products.sort( a => (!a.inOffer) ? -1 : 1 );
-
-      case '3': return this.products = this.products.sort(
-        (a, b) => (a.finalPrice < b.finalPrice) ? -1 : 0
-      );
-
-      case '4': return this.products = this.products.sort(
-        (a, b) => (a.finalPrice > b.finalPrice) ? -1 : 0
-      );
-
-    }
-
+    return this.products = this.productsSvc.getOrderOf( value, this.products );
   }
 }

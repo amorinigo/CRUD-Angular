@@ -83,6 +83,9 @@ export class ListComponent implements OnInit {
     ( this.products.length === 0 ) ? this.showMessage = true : this.showMessage = false;
   }
 
+
+
+  
   public search( value: string ): void {
     this.showButton = false;
 

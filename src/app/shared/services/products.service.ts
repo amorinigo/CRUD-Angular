@@ -2,9 +2,21 @@ import { Injectable } from '@angular/core';
 import { Location }   from '@angular/common';
 import { Router }     from '@angular/router';
 import Swal, { SweetAlertOptions, SweetAlertResult } from 'sweetalert2'
+import { Product } from '../interfaces/product.interface';
 
 @Injectable({ providedIn: 'root' })
 export class ProductsService {
+
+  private alertConfig: SweetAlertOptions = {
+    title: '¿Está seguro que quiere eliminar este producto?',
+    text: 'Una vez aceptado, no podrá revertir los cambios',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#218838',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sí, eliminar',
+    cancelButtonText: 'Cancelar'
+  };
 
   constructor( private location : Location,
                private router   : Router ) {}
@@ -29,17 +41,6 @@ export class ProductsService {
     return this.router.navigate(['catálogo']);
   }
 
-  private alertConfig: SweetAlertOptions = {
-    title: '¿Está seguro que quiere eliminar este producto?',
-    text: 'Una vez aceptado, no podrá revertir los cambios',
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#218838',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Sí, eliminar',
-    cancelButtonText: 'Cancelar'
-  };
-
   public showDeleteAlert(): Promise<SweetAlertResult> {
     return Swal.fire( this.alertConfig );
   }
@@ -63,5 +64,27 @@ export class ProductsService {
 
   public showDeleteMessage(): void {
     this.getMessage('El producto ha sido eliminado.');
+  }
+
+  public getFilterOf( value: string, newProducts: Product[] ): Product[] {
+    switch( value ) {
+      case '0' : return newProducts;
+      case '1' : return newProducts.filter( product => product.inOffer );
+      case '2' : return newProducts.filter( product => !product.inOffer );
+      case '3' : return newProducts.filter( product => product.finalPrice > 1000 );
+      case '4' : return newProducts.filter( product => product.finalPrice < 1000 );
+    }
+  }
+
+  public getOrderOf( value: string, products: Product[] ): Product[] {
+
+    switch( value ) {
+      case '0': return products;
+      case '1': return products.sort( a => (a.inOffer)  ? -1 : 1 );
+      case '2': return products.sort( a => (!a.inOffer) ? -1 : 1 );
+      case '3': return products.sort( (a, b) => (a.finalPrice < b.finalPrice) ? -1 : 0 );
+      case '4': return products.sort( (a, b) => (a.finalPrice > b.finalPrice) ? -1 : 0 );
+    }
+
   }
 }
